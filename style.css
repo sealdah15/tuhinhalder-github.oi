@@ -1,0 +1,337 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-shadow: border-box;
+}
+
+body{
+background: #4e699d;
+
+}
+.marki{
+display: flex;
+height: 35vh;
+align-items: center;
+justify-content: center;
+background: #4e699d;
+}
+.box{
+    display: flex;
+}
+.inner{
+width: 1000px;
+height: 200px;
+line-height: 200px;
+font-size: 6em;
+font-weight: 800;
+white-space: nowrap;
+overflow: hidden;
+box-shadow: 4px 6px 8px rgba(0,0,0,0.5);
+}
+.inner:first-child{
+background: indianred;
+color: #f1f1f1;
+transform-origin: right;
+transform: perspective(100px) rotateY(-15deg);
+}
+.inner:last-child{
+background: lightcoral;
+color: #ff0;
+transform-origin: left;
+transform: perspective(100px) rotateY(15deg);
+}
+.inner span{
+position: absolute;
+animation: marquee 5s linear infinite;
+
+}
+.inner:first-child span{
+animation-delay: 2.5s;
+left: -100%;
+}
+
+@keyframes marquee{
+from{
+ left: 100%;
+}
+to{
+left: -100%;
+}
+}
+.lick{
+    width: 100px;
+    height: 30px;
+    background-color: #FC4BE5;
+    color: white;
+    margin-left: 90px;
+    border-radius: 50px;
+    border: none;
+    }
+    .click{
+    width: 100px;
+    height: 30px;
+    background-color: #4e699d;
+    color: white;
+    margin-left: 90px;
+    border-radius: 50px;
+    border: none;
+    line-height: 30px;
+    margin-top: 25px;
+    }
+
+label{
+display: block;
+position: absolute;
+top: 65%;
+left: 50%;
+transform: translate(-50%,-50%);
+align-items: center;
+width: 280px;
+height: 350px;
+perspective: 1000px;
+transform-style: preserve-3d;
+cursor: pointer;
+
+}
+
+.flip-card{
+position: relative;
+width: 100%;
+height: 100%;
+transform-style: preserve-3d;
+transition: all 0.5s ease-in-out;
+z-index: 1;
+
+}
+
+.flip-card .front,
+.flip-card .back{
+position: absolute;
+width: 100%;
+height: 100%;
+text-align: center;
+background: #fff;
+backface-visibility: hidden;
+border-radius: 0 20px 0 20px;
+
+
+}
+.flip-card .back{
+transform: rotateX(180deg);
+color: #000;
+background: #fff;
+}
+
+label:hover .flip-card{
+transform: rotateX(2deg);
+box-shadow: 0 20px 20px rgba(50,60,60,0.2);
+}
+
+input{
+display: none;
+}
+
+:checked + .flip-card{
+transform: rotateX(180deg);
+}
+
+label:hover :checked + .flip-card{
+transform: rotateX(175deg);
+box-shadow: 0 20px 20px rgba(255,255,255,0.2);
+}
+
+.front img{
+width: 110px;
+height: 110px;
+margin: 30px 0 20px 0;
+border-radius: 50%;
+border: 1px solid black;
+}
+
+.front h1{
+font-size: 20px;
+color: #4e699d;
+margin: 0;
+}
+
+.front h2{
+font-size: 18px;
+color: #4e699d;
+margin: 8px 0 8px 0;
+}
+
+.front h2{
+font-size: 14px;
+color: #424752;
+margin: 0 0 16px 0;
+display: block;
+}
+
+.front p,
+.back .click{
+font-size: 18px;
+font-weight: 600;
+}
+.front p{
+line-height: 30px;
+}
+
+.back img{
+width: 110px;
+height: 110px;
+margin: 30px 0 10px 0;
+border-radius: 50%;
+}
+.back h1{
+color: #FC4BE5;
+margin: 10px 0 0 0;
+font-size: 20px;
+}
+
+hr{
+width: 180px;
+margin: 10px auto 10px auto;
+}
+
+.back h2{
+font-size: 14px;
+color: #424752;
+margin: 8px 0 8px 0;
+}
+.container{
+    position: relative;
+    margin-top: 60vh;
+    padding: 0px;
+    left: 0px;
+right: 0px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+.countdown{
+    
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    
+}
+
+.countdown div{
+    position: relative;
+width: 80px;
+height: 80px;
+line-height: 80px;
+text-align: center;
+
+letter-spacing: 4px;
+box-shadow: -5px -5px 5px rgba(255,255,255,0.1), 10px 5px 10px rgba(0,0,0,0.4);
+font-family: 'ZCOOL QingKe HuangYou', cursive;            
+border-radius: 50px;
+color: #Fff;
+margin: 0 9px;
+font-size: 2em;
+font-weight: 250;   
+}
+
+.countdown div:before{
+    content: '';
+position: absolute;
+bottom: -29px;
+left: 0;
+width: 100%;
+height: 25px;
+box-shadow: -3px -3px 3px rgba(255,255,255,0.1), 5px 5px 5px rgba(0,0,0,0.3);
+overflow: hidden;
+border-radius: 50px;
+color: white;
+font-weight: bold;
+font-size: 0.50em;
+letter-spacing: 1px;
+line-height: 24px;
+font-weight: 300;
+}
+
+.countdown #day:before{
+    content: 'দিন';
+}
+
+.countdown #hour:before{
+    content: 'ঘন্টা';
+}
+
+.countdown #minute:before{
+    content: 'মিনিট';
+}
+
+.countdown #second:before{
+    content: 'সেকেন্ড';
+}
+
+.content h2{
+    text-align: center;
+    margin-top: 15px;
+    color: #FED100;
+}
+
+ .subh{
+    text-align: center;
+    margin-top: 15px;
+    padding: 0;
+    margin-bottom: 15px;
+    color: #FED100;
+}
+
+.proja{
+    text-align: center;
+    margin-bottom: 15px;
+    color: #FED100;
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#fontcss{
+   color: #FED100;
+    margin-left: 10px;
+    margin-bottom: 15px;
+}
+
+ .bih{
+    text-align: justify;
+    text-indent: 35px;
+margin-right: 10px;
+margin-left: 10px;
+margin-bottom: 45px;
+color: #FED100;
+}
+
+ .nibe{
+    text-align: right;
+    margin-right: 10px;
+    margin-bottom: 25px;
+    color: #FED100;
+}
+footer{
+    width: 100%;
+    height: 100px;
+    background: #31569D;
+    left: 0;
+      right: 0;
+      text-align: center;
+    
+    }
+
+  footer p{
+      text-align: center;
+      padding: 10px;
+      color: whitesmoke;
+      
+  }  
+
+  footer .call{
+      width: 130px;
+      height: 30px;
+      border-radius: 45px;
+              
+      }
